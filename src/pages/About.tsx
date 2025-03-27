@@ -1,13 +1,10 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';
 import { BookOpen, Users, LineChart, GraduationCap, Share2, Lightbulb } from 'lucide-react';
 
 const About: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-slate-50">
       <NavBar />
@@ -20,23 +17,25 @@ const About: React.FC = () => {
               Empowering educators and students through data-driven insights and predictive analytics for enhanced online learning experiences.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button 
-                size="lg" 
-                onClick={() => navigate('/dashboard')}
-                className="gap-2"
-              >
-                <LineChart size={20} />
-                Explore Dashboard
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => navigate('/prediction')}
-                className="gap-2"
-              >
-                <GraduationCap size={20} />
-                Try Prediction
-              </Button>
+              <Link to="/dashboard">
+                <Button 
+                  size="lg" 
+                  className="gap-2"
+                >
+                  <LineChart size={20} />
+                  Explore Dashboard
+                </Button>
+              </Link>
+              <Link to="/prediction">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="gap-2"
+                >
+                  <GraduationCap size={20} />
+                  Try Prediction
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -154,19 +153,16 @@ const About: React.FC = () => {
               Join thousands of educators and institutions already using EduVision to transform their online learning experiences.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button 
-                size="lg" 
-                onClick={() => navigate('/signup')}
-              >
-                Get Started Today
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => navigate('/login')}
-              >
-                Log In
-              </Button>
+              <Link to="/signup">
+                <Button size="lg">
+                  Get Started Today
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button size="lg" variant="outline">
+                  Log In
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { ArrowRight, BarChart2, Brain, Users } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="relative overflow-hidden bg-background pt-20 pb-16 sm:pt-32 sm:pb-24">
       {/* Background decorative elements */}
@@ -32,19 +29,19 @@ const HeroSection: React.FC = () => {
               Our advanced prediction system analyzes learning patterns, identifies at-risk students, and provides personalized recommendations for improving educational outcomes.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <button 
-                onClick={() => navigate('/dashboard')}
+              <Link 
+                to="/dashboard"
                 className="px-6 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow flex items-center gap-2 group"
               >
                 Explore Dashboard
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button 
-                onClick={() => navigate('/prediction')}
+              </Link>
+              <Link 
+                to="/prediction"
                 className="px-6 py-3 bg-white text-slate-800 rounded-md font-medium hover:bg-slate-50 transition-all duration-300 border border-slate-200 shadow-sm hover:shadow"
               >
                 Try Prediction
-              </button>
+              </Link>
             </div>
           </div>
 

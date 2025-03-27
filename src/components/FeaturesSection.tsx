@@ -10,6 +10,7 @@ import {
   UserCog,
   Zap
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FeaturesSection: React.FC = () => {
   return (
@@ -109,10 +110,10 @@ const FeaturesSection: React.FC = () => {
               </p>
             </div>
             <div className="flex justify-start lg:justify-end">
-              <button className="px-6 py-3 bg-white text-primary hover:bg-white/90 rounded-md font-medium transition-all duration-300 shadow flex items-center gap-2">
+              <Link to="/signup" className="px-6 py-3 bg-white text-primary hover:bg-white/90 rounded-md font-medium transition-all duration-300 shadow flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>
