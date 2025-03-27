@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -43,21 +43,21 @@ const NavBar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span 
+            <Link 
+              to="/"
               className="text-xl font-semibold cursor-pointer transition-all hover:opacity-80"
-              onClick={() => navigate('/')}
             >
               <span className="text-primary">Edu</span>Vision
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
-                <button
+                <Link
                   key={link.name}
-                  onClick={() => navigate(link.path)}
+                  to={link.path}
                   className={cn(
                     'text-sm font-medium relative transition-all duration-300 ease-in-out',
                     isActive(link.path)
@@ -68,25 +68,25 @@ const NavBar: React.FC = () => {
                   )}
                 >
                   {link.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* Login Button (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
-            <button 
-              onClick={() => navigate('/login')}
+            <Link 
+              to="/login"
               className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-primary transition-all"
             >
               Log In
-            </button>
-            <button 
-              onClick={() => navigate('/signup')}
+            </Link>
+            <Link 
+              to="/signup"
               className="px-4 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-md transition-all shadow-sm hover:shadow"
             >
               Sign Up
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -111,12 +111,10 @@ const NavBar: React.FC = () => {
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg animate-smooth-appear">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.name}
-                onClick={() => {
-                  navigate(link.path);
-                  setIsMobileMenuOpen(false);
-                }}
+                to={link.path}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
                   'block px-3 py-2 rounded-md text-base font-medium w-full text-left',
                   isActive(link.path)
@@ -125,27 +123,23 @@ const NavBar: React.FC = () => {
                 )}
               >
                 {link.name}
-              </button>
+              </Link>
             ))}
             <div className="flex flex-col pt-2 space-y-2 border-t border-slate-200 mt-2">
-              <button
-                onClick={() => {
-                  navigate('/login');
-                  setIsMobileMenuOpen(false);
-                }}
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="px-3 py-2 text-base font-medium text-slate-700 hover:text-primary w-full text-left"
               >
                 Log In
-              </button>
-              <button
-                onClick={() => {
-                  navigate('/signup');
-                  setIsMobileMenuOpen(false);
-                }}
+              </Link>
+              <Link
+                to="/signup"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="mx-3 px-4 py-2 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-md transition-all"
               >
                 Sign Up
-              </button>
+              </Link>
             </div>
           </div>
         </div>
