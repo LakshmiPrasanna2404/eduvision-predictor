@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import Dashboard from "./components/Dashboard";
 import PredictionForm from "./components/PredictionForm";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +43,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/prediction" element={<PredictionPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
